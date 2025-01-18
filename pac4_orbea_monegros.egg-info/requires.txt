@@ -1,0 +1,7 @@
+pandas
+matplotlib
+Faker
+pytest
+coverage
+pylint
+setuptools

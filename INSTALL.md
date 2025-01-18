@@ -1,0 +1,1 @@
+# Guia d'instal·lació i execució
