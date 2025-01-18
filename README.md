@@ -1,11 +1,10 @@
 # PAC4 - Orbea Monegros 2024
 
-Aquest projecte és la PAC4 de l'assignatura "Programació per a la Ciència de Dades", on s'analitza un dataset de l'Orbea Monegros 2024. El codi està empaquetat com un mòdul de Python, i inclou:
+Aquest projecte és la PAC4 de l'assignatura "Programació per a la Ciència de Dades", on s'analitza un dataset de l'Orbea Monegros 2024.
 
-- **Anàlisi de dades** i neteja (Ex1, Ex2, Ex3, Ex4, Ex5).
-- **Estructura de mòduls** amb tests unitaris i cobertura.
-- **Llicència MIT** i fitxers de configuració (`setup.py`, `requirements.txt`).
-- **Documentació** al `README` i un fitxer `INSTALL.md` amb instruccions addicionals.
+## Autora
+
+Marta Granero I Martí
 
 ## 1. Estructura del projecte
 
@@ -22,9 +21,22 @@ Aquest projecte és la PAC4 de l'assignatura "Programació per a la Ciència de 
 - **`tests/`**: Fitxers de test unitaris (ex: `test_ex1.py`) i suite addicional (`test_suite.py`).
 
 
-## 2. Eines
+## 2. Eines i paquets utilitzats
 
+Al projecte hem fet servir diverses eines i llibreries:
 
+- **Python 3.12** (o superior).
+- **pandas**: per carregar i manipular dades (EDA).
+- **matplotlib**: per generar l’histograma (Ex3).
+- **Faker**: per anonimitzar el nom dels ciclistes (Ex2).
+- **pytest** / **unittest**: per fer tests unitaris.
+- **coverage**: per calcular la cobertura de codi.
+- **pylint**: per comprovar l’estil segons la PEP8.
+- **pdoc**: per generar documentació automàtica a partir dels docstrings.
+- **Makefile**: per facilitar la creació d’entorn virtual, instal·lació de dependències, execució dels exercicis, tests, cobertura, documentació, creació del paquet i instal·lació del mateix al nostre entorn.
+- **setup.py**: per empaquetar el projecte com un paquet (sdist + wheel) i poder-lo instal·lar amb `pip install dist/...`.
+
+Totes aquestes depenen d'**`requirements.txt`**, on es defineixen versions concretes o mínimes.
 
 
 ## 3. Exercicis (Ex1 → Ex5)
@@ -38,7 +50,7 @@ Aquest projecte és la PAC4 de l'assignatura "Programació per a la Ciència de 
 
 ## 3. Makefile
 
-Aquest projecte inclou un **Makefile** per automatitzar la instal·lació i les tasques de la PAC que es demanen juntament amb algunes més:
+Aquest projecte inclou un **Makefile** per automatitzar i simplificar la instal·lació i les tasques de la PAC que es demanen juntament amb algunes més:
 
 - **`help`**: Permet veure la llista de comandes amb l'eina Make que podem executar. 
 - **`create-venv`**: Crea un entorn virtual `venv/` (si no existeix).  
@@ -72,8 +84,32 @@ make run-all
 ```
 
 
-## Instal·lació 
+## Com dur a terme l'execució i la instal·lació de l'entorn i els requeriments?
 
+Per a una guia pas a pas (crear entorn virtual, instal·lar, executar exercici, tests i cobertures, etc.), consulta l’arxiu `INSTALL.md`. 
+Allí s’explica detalladament com arrencar el projecte i com emprar el Makefile.
 
+## Tests i cobertura
+
+Els tests estan a la carpeta `tests/`. En aquesta hi trobarem un fitxer per cada exercici (`test_ex1.py`, etc.). Així mateix, també hi ha un `test_suite.py` que ens serveix per agrupar tot en una suite manual. 
+A més a més, per calcular la cobertura dels testos, fem servir el paquet `coverage`.
+
+## Generació de la documentació
+
+Per generar documentació a partir dels docstrings (amb pdoc):
+
+```bash
+make docs
+```
+
+o manualment, des de la carpeta arrel del projecte:
+
+```bash
+pdoc modules/ main.py tests --output-dir docs
+```
+
+## Llicència
+
+Aquest projecte es distribueix sota la `MIT License`, podeu trobar-hi més informació al fitxer `LICENSE` al projecte.
 
 
