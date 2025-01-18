@@ -1,13 +1,13 @@
 # Python bytecode
-__pycache__/
+__pycache__/*
 
 # Entorns virtuals
-venv/
-.venv/
+venv/*
+.venv/*
 
 # Fitxers de build i distribució
-build/
-dist/
+build/*
+dist/*
 *.egg-info/
 
 # Caché de pytest
@@ -15,10 +15,10 @@ dist/
 
 # Caché de coverage
 .coverage
-htmlcov/
+htmlcov/*
 
 # Fitxers d'editor
-.idea/
+.idea/*
 
 # Fitxers de sistema
 .DS_Store
