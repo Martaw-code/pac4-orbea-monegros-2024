@@ -53,5 +53,5 @@ class TestEx3(unittest.TestCase):
             "S'hauria d'haver creat el fitxer de l'histograma.")
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     unittest.main()

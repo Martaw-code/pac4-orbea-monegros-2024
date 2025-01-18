@@ -121,3 +121,5 @@ clean:
 	@echo "Eliminant fitxers de caché i cobertura..."
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 	find . -name "*.pyc" -exec rm -f {} +
+	find . -name "*.egg-info" -exec rm -rf {} +
+	find . -name ".coverage" -exec rm -f {} +

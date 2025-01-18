@@ -3,7 +3,9 @@ Test module per l'exercici ex5.py usant unittest
 """
 import unittest
 import pandas as pd
-from modules.ex5 import get_ucsc_ciclistes, get_millor_temps_ucsc, get_posicio_i_percentatge
+from modules.ex5 import get_ucsc_ciclistes, get_millor_temps_ucsc, get_posicio_i_percentatge, run_ex5
+from unittest.mock import patch
+from io import StringIO
 
 class TestEx5(unittest.TestCase):
     """Tests per a les funcions d'ex5.py."""
@@ -65,9 +67,15 @@ class TestEx5(unittest.TestCase):
             "time": ["01:00:00", "02:00:00"],
             "dorsal": [1, 2]
         })
-        df_ucsc = get_ucsc_ciclistes(df)
-        self.assertEqual(len(df_ucsc), 0, "No hauria de trobar cap ciclista UCSC.")
+
+        df_no_ucsc = get_ucsc_ciclistes(df)
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            run_ex5(df_no_ucsc)
+            output = fake_out.getvalue()
+
+        self.assertIn("No hi ha ciclistes de la UCSC", output,
+                      "S'esperava el missatge de que no hi ha ciclistes UCSC.")
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     unittest.main()

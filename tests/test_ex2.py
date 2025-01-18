@@ -60,5 +60,5 @@ class TestEx2(unittest.TestCase):
         self.assertEqual(len(result), 0, "No hauria de trobar cap fila.")
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     unittest.main()

@@ -17,7 +17,8 @@ setup(
         "coverage",
         "pylint",
         "setuptools",
-        "pdoc"
+        "pdoc",
+        "pytest"
     ],
     entry_points={
         "console_scripts": [
