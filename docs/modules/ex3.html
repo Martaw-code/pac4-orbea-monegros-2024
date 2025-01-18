@@ -34,13 +34,13 @@
                     <a class="function" href="#minutes_002040">minutes_002040</a>
             </li>
             <li>
-                    <a class="function" href="#create_time_grouped_column">create_time_grouped_column</a>
+                    <a class="function" href="#crea_time_grouped">crea_time_grouped</a>
             </li>
             <li>
                     <a class="function" href="#groupby_time_grouped">groupby_time_grouped</a>
             </li>
             <li>
-                    <a class="function" href="#plot_histogram">plot_histogram</a>
+                    <a class="function" href="#plot_histograma">plot_histograma</a>
             </li>
             <li>
                     <a class="function" href="#run_ex3">run_ex3</a>
@@ -85,12 +85,12 @@
 </span><span id="L-7"><a href="#L-7"><span class="linenos">  7</span></a><span class="sd">- Crear un histograma i guardar-lo a &#39;img/histograma.png&#39;.</span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos">  8</span></a><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-9"><a href="#L-9"><span class="linenos">  9</span></a>
-</span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos"> 10</span></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos"> 11</span></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos"> 12</span></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </span><span id="L-13"><a href="#L-13"><span class="linenos"> 13</span></a>
 </span><span id="L-14"><a href="#L-14"><span class="linenos"> 14</span></a>
-</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a><span class="k">def</span><span class="w"> </span><span class="nf">minutes_002040</span><span class="p">(</span><span class="n">time_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a><span class="k">def</span><span class="w"> </span><span class="nf">minutes_002040</span><span class="p">(</span><span class="n">temps_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 </span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a><span class="sd">    Rep un valor de temps en format &#39;hh:mi:ss&#39; i retorna un valor &#39;hh:mi&#39;</span>
 </span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a><span class="sd">    on mi només pot ser 00, 20 o 40, segons la franja de 20 minuts.</span>
@@ -100,84 +100,87 @@
 </span><span id="L-22"><a href="#L-22"><span class="linenos"> 22</span></a><span class="sd">        - &#39;06:29:40&#39; -&gt; &#39;06:20&#39;</span>
 </span><span id="L-23"><a href="#L-23"><span class="linenos"> 23</span></a><span class="sd">        - &#39;06:59:40&#39; -&gt; &#39;06:40&#39;</span>
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>
-</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="sd">    :param time_str: String amb el temps en format &#39;hh:mi:ss&#39;.</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a><span class="sd">    :param temps_str: String amb el temps en format &#39;hh:mi:ss&#39;.</span>
 </span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a><span class="sd">    :return: String amb el temps agrupat en format &#39;hh:mi&#39;.</span>
 </span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>    <span class="n">hh</span><span class="p">,</span> <span class="n">mi</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">time_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>    <span class="n">hh</span><span class="p">,</span> <span class="n">mi</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">temps_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>    <span class="n">hh</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hh</span><span class="p">)</span>
 </span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a>    <span class="n">mi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>
-</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>    <span class="c1"># Calculem a quina franja pertany</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;00&#39;</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>    <span class="k">elif</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
-</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;20&#39;</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;40&#39;</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>
-</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hh</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">mi_group</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>
+</span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>    <span class="n">ss</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>    <span class="c1"># Calculem a quina franja pertany</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;00&#39;</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>    <span class="k">elif</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;20&#39;</span>
+</span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;40&#39;</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hh</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">mi_group</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>
-</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a><span class="k">def</span><span class="w"> </span><span class="nf">create_time_grouped_column</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="sd">    Crea una nova columna &#39;time_grouped&#39; aplicant la funció &#39;minutes_002040&#39;</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a><span class="sd">    a la columna &#39;time&#39;.</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a>
-</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a><span class="sd">    :param df: DataFrame original.</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a><span class="sd">    :return: DataFrame amb la columna &#39;time_grouped&#39; afegida.</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a>    <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>    <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">minutes_002040</span><span class="p">)</span>
-</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>    <span class="k">return</span> <span class="n">df_copy</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>
+</span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>
+</span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a><span class="k">def</span><span class="w"> </span><span class="nf">crea_time_grouped</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos"> 45</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-46"><a href="#L-46"><span class="linenos"> 46</span></a><span class="sd">    Crea una nova columna &#39;time_grouped&#39; aplicant la funció &#39;minutes_002040&#39;</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos"> 47</span></a><span class="sd">    a la columna &#39;time&#39;.</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos"> 48</span></a>
+</span><span id="L-49"><a href="#L-49"><span class="linenos"> 49</span></a><span class="sd">    :param data_frame: DataFrame original.</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos"> 50</span></a><span class="sd">    :return: DataFrame amb la columna &#39;time_grouped&#39; afegida.</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos"> 51</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos"> 52</span></a>    <span class="n">df_copia</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos"> 53</span></a>    <span class="n">df_copia</span><span class="p">[</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copia</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">minutes_002040</span><span class="p">)</span>
+</span><span id="L-54"><a href="#L-54"><span class="linenos"> 54</span></a>    <span class="k">return</span> <span class="n">df_copia</span>
 </span><span id="L-55"><a href="#L-55"><span class="linenos"> 55</span></a>
-</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a><span class="k">def</span><span class="w"> </span><span class="nf">groupby_time_grouped</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a><span class="sd">    Agrupa el DataFrame per la columna &#39;time_grouped&#39; i en compte quants ciclistes</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="sd">    hi ha a cada franja de temps.</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a>
-</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a><span class="sd">    :param df: DataFrame que conté la columna &#39;time_grouped&#39;.</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="sd">    :return: DataFrame amb les columnes [&#39;time_grouped&#39;, &#39;count&#39;].</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>    <span class="k">return</span> <span class="n">grouped</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>
+</span><span id="L-56"><a href="#L-56"><span class="linenos"> 56</span></a>
+</span><span id="L-57"><a href="#L-57"><span class="linenos"> 57</span></a><span class="k">def</span><span class="w"> </span><span class="nf">groupby_time_grouped</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos"> 58</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos"> 59</span></a><span class="sd">    Agrupa el DataFrame per la columna &#39;time_grouped&#39; i en compte quants ciclistes</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos"> 60</span></a><span class="sd">    hi ha a cada franja de temps.</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos"> 61</span></a>
+</span><span id="L-62"><a href="#L-62"><span class="linenos"> 62</span></a><span class="sd">    :param data_frame: DataFrame que conté la columna &#39;time_grouped&#39;.</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos"> 63</span></a><span class="sd">    :return: DataFrame amb les columnes [&#39;time_grouped&#39;, &#39;count&#39;].</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos"> 64</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-65"><a href="#L-65"><span class="linenos"> 65</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos"> 66</span></a>    <span class="k">return</span> <span class="n">grouped</span>
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>
-</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_histogram</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;img/histograma.png&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">    Genera un histograma (o bé un bar plot) a partir de la informació agrupada</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="sd">    en franges de 20 min i el desa a &#39;img/histograma.png&#39;.</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>
-</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">    :param grouped_df: DataFrame amb dues columnes: [&#39;time_grouped&#39;, &#39;count&#39;].</span>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">    :param output_path: Ruta on desar la imatge (png).</span>
-</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">],</span> <span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Franja de temps (hh:mi)&#39;</span><span class="p">)</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Nombre de ciclistes&#39;</span><span class="p">)</span>
-</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram de ciclistes per franja de 20 min&#39;</span><span class="p">)</span>
-</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>
-</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>
-</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="k">def</span><span class="w"> </span><span class="nf">run_ex3</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">    Executa l&#39;Exercici 3, rebent el df resultant de l&#39;ex2.</span>
-</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- EXERCICI 3 ---&quot;</span><span class="p">)</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">create_time_grouped_column</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1) 15 primers valors amb columna time_grouped:&quot;</span><span class="p">)</span>
-</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
-</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>
-</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>    <span class="n">grouped_df</span> <span class="o">=</span> <span class="n">groupby_time_grouped</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">2) Agrupament per franges de 20 min:&quot;</span><span class="p">)</span>
-</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">)</span>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>
-</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">3) Generant histograma i guardant a img/histograma.png...&quot;</span><span class="p">)</span>
-</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>    <span class="n">plot_histogram</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">,</span> <span class="s2">&quot;histograma.png&quot;</span><span class="p">))</span>
-</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Fet!&quot;</span><span class="p">)</span>
-</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>
-</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>    <span class="k">return</span> <span class="n">df</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>
+</span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_histograma</span><span class="p">(</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a>        <span class="n">grouped_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>        <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;../img/histograma.png&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a><span class="sd">    Genera un histograma (o bé un bar plot) a partir de la informació agrupada</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">    en franges de 20 min i el desa a &#39;img/histograma.png&#39;.</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>
+</span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">    :param grouped_df: DataFrame amb dues columnes: [&#39;time_grouped&#39;, &#39;count&#39;].</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a><span class="sd">    :param output_path: Ruta on desar la imatge (png).</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">],</span> <span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Franja de temps (hh:mi)&#39;</span><span class="p">)</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Nombre de ciclistes&#39;</span><span class="p">)</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram de ciclistes per franja de 20 min&#39;</span><span class="p">)</span>
+</span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a>
+</span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="k">def</span><span class="w"> </span><span class="nf">run_ex3</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a><span class="sd">    Executa l&#39;Exercici 3, rebent el df resultant de l&#39;ex2.</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- EXERCICI 3 ---&quot;</span><span class="p">)</span>
+</span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>    <span class="n">data_frame</span> <span class="o">=</span> <span class="n">crea_time_grouped</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1) 15 primers valors amb columna time_grouped:&quot;</span><span class="p">)</span>
+</span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+</span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>    <span class="n">grouped_df</span> <span class="o">=</span> <span class="n">groupby_time_grouped</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+</span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">2) Agrupament per franges de 20 min:&quot;</span><span class="p">)</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">)</span>
+</span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">3) Generant histograma i guardant a img/histograma.png...&quot;</span><span class="p">)</span>
+</span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>    <span class="n">plot_histograma</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">,</span> <span class="s2">&quot;histograma.png&quot;</span><span class="p">))</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Fet!&quot;</span><span class="p">)</span>
+</span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>
+</span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>    <span class="k">return</span> <span class="n">data_frame</span>
 </span></pre></div>
 
 
@@ -187,13 +190,13 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">minutes_002040</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">time_str</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+        <span class="name">minutes_002040</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">temps_str</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
 
                 <label class="view-source-button" for="minutes_002040-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#minutes_002040"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="minutes_002040-16"><a href="#minutes_002040-16"><span class="linenos">16</span></a><span class="k">def</span><span class="w"> </span><span class="nf">minutes_002040</span><span class="p">(</span><span class="n">time_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="minutes_002040-16"><a href="#minutes_002040-16"><span class="linenos">16</span></a><span class="k">def</span><span class="w"> </span><span class="nf">minutes_002040</span><span class="p">(</span><span class="n">temps_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 </span><span id="minutes_002040-17"><a href="#minutes_002040-17"><span class="linenos">17</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="minutes_002040-18"><a href="#minutes_002040-18"><span class="linenos">18</span></a><span class="sd">    Rep un valor de temps en format &#39;hh:mi:ss&#39; i retorna un valor &#39;hh:mi&#39;</span>
 </span><span id="minutes_002040-19"><a href="#minutes_002040-19"><span class="linenos">19</span></a><span class="sd">    on mi només pot ser 00, 20 o 40, segons la franja de 20 minuts.</span>
@@ -203,22 +206,23 @@
 </span><span id="minutes_002040-23"><a href="#minutes_002040-23"><span class="linenos">23</span></a><span class="sd">        - &#39;06:29:40&#39; -&gt; &#39;06:20&#39;</span>
 </span><span id="minutes_002040-24"><a href="#minutes_002040-24"><span class="linenos">24</span></a><span class="sd">        - &#39;06:59:40&#39; -&gt; &#39;06:40&#39;</span>
 </span><span id="minutes_002040-25"><a href="#minutes_002040-25"><span class="linenos">25</span></a>
-</span><span id="minutes_002040-26"><a href="#minutes_002040-26"><span class="linenos">26</span></a><span class="sd">    :param time_str: String amb el temps en format &#39;hh:mi:ss&#39;.</span>
+</span><span id="minutes_002040-26"><a href="#minutes_002040-26"><span class="linenos">26</span></a><span class="sd">    :param temps_str: String amb el temps en format &#39;hh:mi:ss&#39;.</span>
 </span><span id="minutes_002040-27"><a href="#minutes_002040-27"><span class="linenos">27</span></a><span class="sd">    :return: String amb el temps agrupat en format &#39;hh:mi&#39;.</span>
 </span><span id="minutes_002040-28"><a href="#minutes_002040-28"><span class="linenos">28</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="minutes_002040-29"><a href="#minutes_002040-29"><span class="linenos">29</span></a>    <span class="n">hh</span><span class="p">,</span> <span class="n">mi</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">time_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</span><span id="minutes_002040-29"><a href="#minutes_002040-29"><span class="linenos">29</span></a>    <span class="n">hh</span><span class="p">,</span> <span class="n">mi</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">temps_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
 </span><span id="minutes_002040-30"><a href="#minutes_002040-30"><span class="linenos">30</span></a>    <span class="n">hh</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">hh</span><span class="p">)</span>
 </span><span id="minutes_002040-31"><a href="#minutes_002040-31"><span class="linenos">31</span></a>    <span class="n">mi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span>
-</span><span id="minutes_002040-32"><a href="#minutes_002040-32"><span class="linenos">32</span></a>
-</span><span id="minutes_002040-33"><a href="#minutes_002040-33"><span class="linenos">33</span></a>    <span class="c1"># Calculem a quina franja pertany</span>
-</span><span id="minutes_002040-34"><a href="#minutes_002040-34"><span class="linenos">34</span></a>    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
-</span><span id="minutes_002040-35"><a href="#minutes_002040-35"><span class="linenos">35</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;00&#39;</span>
-</span><span id="minutes_002040-36"><a href="#minutes_002040-36"><span class="linenos">36</span></a>    <span class="k">elif</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
-</span><span id="minutes_002040-37"><a href="#minutes_002040-37"><span class="linenos">37</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;20&#39;</span>
-</span><span id="minutes_002040-38"><a href="#minutes_002040-38"><span class="linenos">38</span></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="minutes_002040-39"><a href="#minutes_002040-39"><span class="linenos">39</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;40&#39;</span>
-</span><span id="minutes_002040-40"><a href="#minutes_002040-40"><span class="linenos">40</span></a>
-</span><span id="minutes_002040-41"><a href="#minutes_002040-41"><span class="linenos">41</span></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hh</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">mi_group</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="minutes_002040-32"><a href="#minutes_002040-32"><span class="linenos">32</span></a>    <span class="n">ss</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span>
+</span><span id="minutes_002040-33"><a href="#minutes_002040-33"><span class="linenos">33</span></a>
+</span><span id="minutes_002040-34"><a href="#minutes_002040-34"><span class="linenos">34</span></a>    <span class="c1"># Calculem a quina franja pertany</span>
+</span><span id="minutes_002040-35"><a href="#minutes_002040-35"><span class="linenos">35</span></a>    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+</span><span id="minutes_002040-36"><a href="#minutes_002040-36"><span class="linenos">36</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;00&#39;</span>
+</span><span id="minutes_002040-37"><a href="#minutes_002040-37"><span class="linenos">37</span></a>    <span class="k">elif</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">mi</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+</span><span id="minutes_002040-38"><a href="#minutes_002040-38"><span class="linenos">38</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;20&#39;</span>
+</span><span id="minutes_002040-39"><a href="#minutes_002040-39"><span class="linenos">39</span></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="minutes_002040-40"><a href="#minutes_002040-40"><span class="linenos">40</span></a>        <span class="n">mi_group</span> <span class="o">=</span> <span class="s1">&#39;40&#39;</span>
+</span><span id="minutes_002040-41"><a href="#minutes_002040-41"><span class="linenos">41</span></a>
+</span><span id="minutes_002040-42"><a href="#minutes_002040-42"><span class="linenos">42</span></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hh</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">mi_group</span><span class="si">}</span><span class="s2">&quot;</span>
 </span></pre></div>
 
 
@@ -233,7 +237,7 @@ on mi només pot ser 00, 20 o 40, segons la franja de 20 minuts.</p>
 <h6 id="parameters">Parameters</h6>
 
 <ul>
-<li><strong>time_str: String amb el temps en format 'hh:mi</strong>: ss'.</li>
+<li><strong>temps_str: String amb el temps en format 'hh:mi</strong>: ss'.</li>
 </ul>
 
 <h6 id="returns">Returns</h6>
@@ -245,28 +249,28 @@ on mi només pot ser 00, 20 o 40, segons la franja de 20 minuts.</p>
 
 
                 </section>
-                <section id="create_time_grouped_column">
-                            <input id="create_time_grouped_column-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="crea_time_grouped">
+                            <input id="crea_time_grouped-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">create_time_grouped_column</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
+        <span class="name">crea_time_grouped</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data_frame</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
 
-                <label class="view-source-button" for="create_time_grouped_column-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="crea_time_grouped-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#create_time_grouped_column"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="create_time_grouped_column-44"><a href="#create_time_grouped_column-44"><span class="linenos">44</span></a><span class="k">def</span><span class="w"> </span><span class="nf">create_time_grouped_column</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="create_time_grouped_column-45"><a href="#create_time_grouped_column-45"><span class="linenos">45</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="create_time_grouped_column-46"><a href="#create_time_grouped_column-46"><span class="linenos">46</span></a><span class="sd">    Crea una nova columna &#39;time_grouped&#39; aplicant la funció &#39;minutes_002040&#39;</span>
-</span><span id="create_time_grouped_column-47"><a href="#create_time_grouped_column-47"><span class="linenos">47</span></a><span class="sd">    a la columna &#39;time&#39;.</span>
-</span><span id="create_time_grouped_column-48"><a href="#create_time_grouped_column-48"><span class="linenos">48</span></a>
-</span><span id="create_time_grouped_column-49"><a href="#create_time_grouped_column-49"><span class="linenos">49</span></a><span class="sd">    :param df: DataFrame original.</span>
-</span><span id="create_time_grouped_column-50"><a href="#create_time_grouped_column-50"><span class="linenos">50</span></a><span class="sd">    :return: DataFrame amb la columna &#39;time_grouped&#39; afegida.</span>
-</span><span id="create_time_grouped_column-51"><a href="#create_time_grouped_column-51"><span class="linenos">51</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="create_time_grouped_column-52"><a href="#create_time_grouped_column-52"><span class="linenos">52</span></a>    <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="create_time_grouped_column-53"><a href="#create_time_grouped_column-53"><span class="linenos">53</span></a>    <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">minutes_002040</span><span class="p">)</span>
-</span><span id="create_time_grouped_column-54"><a href="#create_time_grouped_column-54"><span class="linenos">54</span></a>    <span class="k">return</span> <span class="n">df_copy</span>
+    <a class="headerlink" href="#crea_time_grouped"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="crea_time_grouped-45"><a href="#crea_time_grouped-45"><span class="linenos">45</span></a><span class="k">def</span><span class="w"> </span><span class="nf">crea_time_grouped</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="crea_time_grouped-46"><a href="#crea_time_grouped-46"><span class="linenos">46</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="crea_time_grouped-47"><a href="#crea_time_grouped-47"><span class="linenos">47</span></a><span class="sd">    Crea una nova columna &#39;time_grouped&#39; aplicant la funció &#39;minutes_002040&#39;</span>
+</span><span id="crea_time_grouped-48"><a href="#crea_time_grouped-48"><span class="linenos">48</span></a><span class="sd">    a la columna &#39;time&#39;.</span>
+</span><span id="crea_time_grouped-49"><a href="#crea_time_grouped-49"><span class="linenos">49</span></a>
+</span><span id="crea_time_grouped-50"><a href="#crea_time_grouped-50"><span class="linenos">50</span></a><span class="sd">    :param data_frame: DataFrame original.</span>
+</span><span id="crea_time_grouped-51"><a href="#crea_time_grouped-51"><span class="linenos">51</span></a><span class="sd">    :return: DataFrame amb la columna &#39;time_grouped&#39; afegida.</span>
+</span><span id="crea_time_grouped-52"><a href="#crea_time_grouped-52"><span class="linenos">52</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="crea_time_grouped-53"><a href="#crea_time_grouped-53"><span class="linenos">53</span></a>    <span class="n">df_copia</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="crea_time_grouped-54"><a href="#crea_time_grouped-54"><span class="linenos">54</span></a>    <span class="n">df_copia</span><span class="p">[</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copia</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">minutes_002040</span><span class="p">)</span>
+</span><span id="crea_time_grouped-55"><a href="#crea_time_grouped-55"><span class="linenos">55</span></a>    <span class="k">return</span> <span class="n">df_copia</span>
 </span></pre></div>
 
 
@@ -276,7 +280,7 @@ a la columna 'time'.</p>
 <h6 id="parameters">Parameters</h6>
 
 <ul>
-<li><strong>df</strong>:  DataFrame original.</li>
+<li><strong>data_frame</strong>:  DataFrame original.</li>
 </ul>
 
 <h6 id="returns">Returns</h6>
@@ -293,22 +297,22 @@ a la columna 'time'.</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">groupby_time_grouped</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
+        <span class="name">groupby_time_grouped</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data_frame</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
 
                 <label class="view-source-button" for="groupby_time_grouped-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#groupby_time_grouped"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="groupby_time_grouped-57"><a href="#groupby_time_grouped-57"><span class="linenos">57</span></a><span class="k">def</span><span class="w"> </span><span class="nf">groupby_time_grouped</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="groupby_time_grouped-58"><a href="#groupby_time_grouped-58"><span class="linenos">58</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="groupby_time_grouped-59"><a href="#groupby_time_grouped-59"><span class="linenos">59</span></a><span class="sd">    Agrupa el DataFrame per la columna &#39;time_grouped&#39; i en compte quants ciclistes</span>
-</span><span id="groupby_time_grouped-60"><a href="#groupby_time_grouped-60"><span class="linenos">60</span></a><span class="sd">    hi ha a cada franja de temps.</span>
-</span><span id="groupby_time_grouped-61"><a href="#groupby_time_grouped-61"><span class="linenos">61</span></a>
-</span><span id="groupby_time_grouped-62"><a href="#groupby_time_grouped-62"><span class="linenos">62</span></a><span class="sd">    :param df: DataFrame que conté la columna &#39;time_grouped&#39;.</span>
-</span><span id="groupby_time_grouped-63"><a href="#groupby_time_grouped-63"><span class="linenos">63</span></a><span class="sd">    :return: DataFrame amb les columnes [&#39;time_grouped&#39;, &#39;count&#39;].</span>
-</span><span id="groupby_time_grouped-64"><a href="#groupby_time_grouped-64"><span class="linenos">64</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="groupby_time_grouped-65"><a href="#groupby_time_grouped-65"><span class="linenos">65</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-</span><span id="groupby_time_grouped-66"><a href="#groupby_time_grouped-66"><span class="linenos">66</span></a>    <span class="k">return</span> <span class="n">grouped</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="groupby_time_grouped-58"><a href="#groupby_time_grouped-58"><span class="linenos">58</span></a><span class="k">def</span><span class="w"> </span><span class="nf">groupby_time_grouped</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="groupby_time_grouped-59"><a href="#groupby_time_grouped-59"><span class="linenos">59</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="groupby_time_grouped-60"><a href="#groupby_time_grouped-60"><span class="linenos">60</span></a><span class="sd">    Agrupa el DataFrame per la columna &#39;time_grouped&#39; i en compte quants ciclistes</span>
+</span><span id="groupby_time_grouped-61"><a href="#groupby_time_grouped-61"><span class="linenos">61</span></a><span class="sd">    hi ha a cada franja de temps.</span>
+</span><span id="groupby_time_grouped-62"><a href="#groupby_time_grouped-62"><span class="linenos">62</span></a>
+</span><span id="groupby_time_grouped-63"><a href="#groupby_time_grouped-63"><span class="linenos">63</span></a><span class="sd">    :param data_frame: DataFrame que conté la columna &#39;time_grouped&#39;.</span>
+</span><span id="groupby_time_grouped-64"><a href="#groupby_time_grouped-64"><span class="linenos">64</span></a><span class="sd">    :return: DataFrame amb les columnes [&#39;time_grouped&#39;, &#39;count&#39;].</span>
+</span><span id="groupby_time_grouped-65"><a href="#groupby_time_grouped-65"><span class="linenos">65</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="groupby_time_grouped-66"><a href="#groupby_time_grouped-66"><span class="linenos">66</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+</span><span id="groupby_time_grouped-67"><a href="#groupby_time_grouped-67"><span class="linenos">67</span></a>    <span class="k">return</span> <span class="n">grouped</span>
 </span></pre></div>
 
 
@@ -318,7 +322,7 @@ hi ha a cada franja de temps.</p>
 <h6 id="parameters">Parameters</h6>
 
 <ul>
-<li><strong>df</strong>:  DataFrame que conté la columna 'time_grouped'.</li>
+<li><strong>data_frame</strong>:  DataFrame que conté la columna 'time_grouped'.</li>
 </ul>
 
 <h6 id="returns">Returns</h6>
@@ -330,32 +334,34 @@ hi ha a cada franja de temps.</p>
 
 
                 </section>
-                <section id="plot_histogram">
-                            <input id="plot_histogram-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="plot_histograma">
+                            <input id="plot_histograma-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">plot_histogram</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">grouped_df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>,</span><span class="param">	<span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;img/histograma.png&#39;</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
+        <span class="name">plot_histograma</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">grouped_df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>,</span><span class="param">	<span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;../img/histograma.png&#39;</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
 
-                <label class="view-source-button" for="plot_histogram-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="plot_histograma-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#plot_histogram"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="plot_histogram-69"><a href="#plot_histogram-69"><span class="linenos">69</span></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_histogram</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;img/histograma.png&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="plot_histogram-70"><a href="#plot_histogram-70"><span class="linenos">70</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="plot_histogram-71"><a href="#plot_histogram-71"><span class="linenos">71</span></a><span class="sd">    Genera un histograma (o bé un bar plot) a partir de la informació agrupada</span>
-</span><span id="plot_histogram-72"><a href="#plot_histogram-72"><span class="linenos">72</span></a><span class="sd">    en franges de 20 min i el desa a &#39;img/histograma.png&#39;.</span>
-</span><span id="plot_histogram-73"><a href="#plot_histogram-73"><span class="linenos">73</span></a>
-</span><span id="plot_histogram-74"><a href="#plot_histogram-74"><span class="linenos">74</span></a><span class="sd">    :param grouped_df: DataFrame amb dues columnes: [&#39;time_grouped&#39;, &#39;count&#39;].</span>
-</span><span id="plot_histogram-75"><a href="#plot_histogram-75"><span class="linenos">75</span></a><span class="sd">    :param output_path: Ruta on desar la imatge (png).</span>
-</span><span id="plot_histogram-76"><a href="#plot_histogram-76"><span class="linenos">76</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="plot_histogram-77"><a href="#plot_histogram-77"><span class="linenos">77</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-</span><span id="plot_histogram-78"><a href="#plot_histogram-78"><span class="linenos">78</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">],</span> <span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-</span><span id="plot_histogram-79"><a href="#plot_histogram-79"><span class="linenos">79</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Franja de temps (hh:mi)&#39;</span><span class="p">)</span>
-</span><span id="plot_histogram-80"><a href="#plot_histogram-80"><span class="linenos">80</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Nombre de ciclistes&#39;</span><span class="p">)</span>
-</span><span id="plot_histogram-81"><a href="#plot_histogram-81"><span class="linenos">81</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram de ciclistes per franja de 20 min&#39;</span><span class="p">)</span>
-</span><span id="plot_histogram-82"><a href="#plot_histogram-82"><span class="linenos">82</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-</span><span id="plot_histogram-83"><a href="#plot_histogram-83"><span class="linenos">83</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <a class="headerlink" href="#plot_histograma"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="plot_histograma-70"><a href="#plot_histograma-70"><span class="linenos">70</span></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_histograma</span><span class="p">(</span>
+</span><span id="plot_histograma-71"><a href="#plot_histograma-71"><span class="linenos">71</span></a>        <span class="n">grouped_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+</span><span id="plot_histograma-72"><a href="#plot_histograma-72"><span class="linenos">72</span></a>        <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;../img/histograma.png&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="plot_histograma-73"><a href="#plot_histograma-73"><span class="linenos">73</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="plot_histograma-74"><a href="#plot_histograma-74"><span class="linenos">74</span></a><span class="sd">    Genera un histograma (o bé un bar plot) a partir de la informació agrupada</span>
+</span><span id="plot_histograma-75"><a href="#plot_histograma-75"><span class="linenos">75</span></a><span class="sd">    en franges de 20 min i el desa a &#39;img/histograma.png&#39;.</span>
+</span><span id="plot_histograma-76"><a href="#plot_histograma-76"><span class="linenos">76</span></a>
+</span><span id="plot_histograma-77"><a href="#plot_histograma-77"><span class="linenos">77</span></a><span class="sd">    :param grouped_df: DataFrame amb dues columnes: [&#39;time_grouped&#39;, &#39;count&#39;].</span>
+</span><span id="plot_histograma-78"><a href="#plot_histograma-78"><span class="linenos">78</span></a><span class="sd">    :param output_path: Ruta on desar la imatge (png).</span>
+</span><span id="plot_histograma-79"><a href="#plot_histograma-79"><span class="linenos">79</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="plot_histograma-80"><a href="#plot_histograma-80"><span class="linenos">80</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span><span id="plot_histograma-81"><a href="#plot_histograma-81"><span class="linenos">81</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;time_grouped&#39;</span><span class="p">],</span> <span class="n">grouped_df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</span><span id="plot_histograma-82"><a href="#plot_histograma-82"><span class="linenos">82</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Franja de temps (hh:mi)&#39;</span><span class="p">)</span>
+</span><span id="plot_histograma-83"><a href="#plot_histograma-83"><span class="linenos">83</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Nombre de ciclistes&#39;</span><span class="p">)</span>
+</span><span id="plot_histograma-84"><a href="#plot_histograma-84"><span class="linenos">84</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram de ciclistes per franja de 20 min&#39;</span><span class="p">)</span>
+</span><span id="plot_histograma-85"><a href="#plot_histograma-85"><span class="linenos">85</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</span><span id="plot_histograma-86"><a href="#plot_histograma-86"><span class="linenos">86</span></a>    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span></pre></div>
 
 
@@ -377,30 +383,30 @@ en franges de 20 min i el desa a 'img/histograma.png'.</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">run_ex3</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
+        <span class="name">run_ex3</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data_frame</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
 
                 <label class="view-source-button" for="run_ex3-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#run_ex3"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="run_ex3-86"><a href="#run_ex3-86"><span class="linenos"> 86</span></a><span class="k">def</span><span class="w"> </span><span class="nf">run_ex3</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="run_ex3-87"><a href="#run_ex3-87"><span class="linenos"> 87</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="run_ex3-88"><a href="#run_ex3-88"><span class="linenos"> 88</span></a><span class="sd">    Executa l&#39;Exercici 3, rebent el df resultant de l&#39;ex2.</span>
-</span><span id="run_ex3-89"><a href="#run_ex3-89"><span class="linenos"> 89</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="run_ex3-90"><a href="#run_ex3-90"><span class="linenos"> 90</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- EXERCICI 3 ---&quot;</span><span class="p">)</span>
-</span><span id="run_ex3-91"><a href="#run_ex3-91"><span class="linenos"> 91</span></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">create_time_grouped_column</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span><span id="run_ex3-92"><a href="#run_ex3-92"><span class="linenos"> 92</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1) 15 primers valors amb columna time_grouped:&quot;</span><span class="p">)</span>
-</span><span id="run_ex3-93"><a href="#run_ex3-93"><span class="linenos"> 93</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
-</span><span id="run_ex3-94"><a href="#run_ex3-94"><span class="linenos"> 94</span></a>
-</span><span id="run_ex3-95"><a href="#run_ex3-95"><span class="linenos"> 95</span></a>    <span class="n">grouped_df</span> <span class="o">=</span> <span class="n">groupby_time_grouped</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</span><span id="run_ex3-96"><a href="#run_ex3-96"><span class="linenos"> 96</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">2) Agrupament per franges de 20 min:&quot;</span><span class="p">)</span>
-</span><span id="run_ex3-97"><a href="#run_ex3-97"><span class="linenos"> 97</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">)</span>
-</span><span id="run_ex3-98"><a href="#run_ex3-98"><span class="linenos"> 98</span></a>
-</span><span id="run_ex3-99"><a href="#run_ex3-99"><span class="linenos"> 99</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">3) Generant histograma i guardant a img/histograma.png...&quot;</span><span class="p">)</span>
-</span><span id="run_ex3-100"><a href="#run_ex3-100"><span class="linenos">100</span></a>    <span class="n">plot_histogram</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">,</span> <span class="s2">&quot;histograma.png&quot;</span><span class="p">))</span>
-</span><span id="run_ex3-101"><a href="#run_ex3-101"><span class="linenos">101</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Fet!&quot;</span><span class="p">)</span>
-</span><span id="run_ex3-102"><a href="#run_ex3-102"><span class="linenos">102</span></a>
-</span><span id="run_ex3-103"><a href="#run_ex3-103"><span class="linenos">103</span></a>    <span class="k">return</span> <span class="n">df</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="run_ex3-89"><a href="#run_ex3-89"><span class="linenos"> 89</span></a><span class="k">def</span><span class="w"> </span><span class="nf">run_ex3</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="run_ex3-90"><a href="#run_ex3-90"><span class="linenos"> 90</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="run_ex3-91"><a href="#run_ex3-91"><span class="linenos"> 91</span></a><span class="sd">    Executa l&#39;Exercici 3, rebent el df resultant de l&#39;ex2.</span>
+</span><span id="run_ex3-92"><a href="#run_ex3-92"><span class="linenos"> 92</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="run_ex3-93"><a href="#run_ex3-93"><span class="linenos"> 93</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- EXERCICI 3 ---&quot;</span><span class="p">)</span>
+</span><span id="run_ex3-94"><a href="#run_ex3-94"><span class="linenos"> 94</span></a>    <span class="n">data_frame</span> <span class="o">=</span> <span class="n">crea_time_grouped</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+</span><span id="run_ex3-95"><a href="#run_ex3-95"><span class="linenos"> 95</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1) 15 primers valors amb columna time_grouped:&quot;</span><span class="p">)</span>
+</span><span id="run_ex3-96"><a href="#run_ex3-96"><span class="linenos"> 96</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+</span><span id="run_ex3-97"><a href="#run_ex3-97"><span class="linenos"> 97</span></a>
+</span><span id="run_ex3-98"><a href="#run_ex3-98"><span class="linenos"> 98</span></a>    <span class="n">grouped_df</span> <span class="o">=</span> <span class="n">groupby_time_grouped</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
+</span><span id="run_ex3-99"><a href="#run_ex3-99"><span class="linenos"> 99</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">2) Agrupament per franges de 20 min:&quot;</span><span class="p">)</span>
+</span><span id="run_ex3-100"><a href="#run_ex3-100"><span class="linenos">100</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">)</span>
+</span><span id="run_ex3-101"><a href="#run_ex3-101"><span class="linenos">101</span></a>
+</span><span id="run_ex3-102"><a href="#run_ex3-102"><span class="linenos">102</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">3) Generant histograma i guardant a img/histograma.png...&quot;</span><span class="p">)</span>
+</span><span id="run_ex3-103"><a href="#run_ex3-103"><span class="linenos">103</span></a>    <span class="n">plot_histograma</span><span class="p">(</span><span class="n">grouped_df</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;img&quot;</span><span class="p">,</span> <span class="s2">&quot;histograma.png&quot;</span><span class="p">))</span>
+</span><span id="run_ex3-104"><a href="#run_ex3-104"><span class="linenos">104</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   Fet!&quot;</span><span class="p">)</span>
+</span><span id="run_ex3-105"><a href="#run_ex3-105"><span class="linenos">105</span></a>
+</span><span id="run_ex3-106"><a href="#run_ex3-106"><span class="linenos">106</span></a>    <span class="k">return</span> <span class="n">data_frame</span>
 </span></pre></div>
 
 

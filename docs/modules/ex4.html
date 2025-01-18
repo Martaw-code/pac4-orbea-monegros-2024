@@ -34,7 +34,7 @@
                     <a class="function" href="#clean_club">clean_club</a>
             </li>
             <li>
-                    <a class="function" href="#add_clean_club_column">add_clean_club_column</a>
+                    <a class="function" href="#afegir_columna_clean_club">afegir_columna_clean_club</a>
             </li>
             <li>
                     <a class="function" href="#groupby_club_clean">groupby_club_clean</a>
@@ -142,44 +142,44 @@
 </span><span id="L-67"><a href="#L-67"><span class="linenos"> 67</span></a>    <span class="k">return</span> <span class="n">club</span>
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a>
-</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="k">def</span><span class="w"> </span><span class="nf">add_clean_club_column</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="k">def</span><span class="w"> </span><span class="nf">afegir_columna_clean_club</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 </span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a><span class="sd">    Retorna un nou DataFrame amb la columna &#39;club_clean&#39; netejada.</span>
 </span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>
-</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">    :param df: DataFrame original.</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a><span class="sd">    :param data_frame: DataFrame original.</span>
 </span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a><span class="sd">    :return: DataFrame amb la nova columna &#39;club_clean&#39;.</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>    <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>    <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;club_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;club&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_club</span><span class="p">)</span>
-</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>    <span class="k">return</span> <span class="n">df_copy</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>    <span class="n">df_copia</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>    <span class="n">df_copia</span><span class="p">[</span><span class="s1">&#39;club_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copia</span><span class="p">[</span><span class="s1">&#39;club&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_club</span><span class="p">)</span>
+</span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>    <span class="k">return</span> <span class="n">df_copia</span>
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>
-</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="k">def</span><span class="w"> </span><span class="nf">groupby_club_clean</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a><span class="k">def</span><span class="w"> </span><span class="nf">groupby_club_clean</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 </span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a><span class="sd">    Agrupa pel camp &#39;club_clean&#39; i retorna un dataframe amb el nom del club</span>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a><span class="sd">    i el número de ciclistes de cada club, ordenat de més a menys.</span>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>
-</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">    :param df: DataFrame amb la columna &#39;club_clean&#39;.</span>
+</span><span id="L-87"><a href="#L-87"><span class="linenos"> 87</span></a><span class="sd">    :param data_frame: DataFrame amb la columna &#39;club_clean&#39;.</span>
 </span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a><span class="sd">    :return: DataFrame amb [&#39;club_clean&#39;, &#39;count&#39;] ordenat desc.</span>
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;club_clean&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+</span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;club_clean&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
 </span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>    <span class="k">return</span> <span class="n">grouped</span>
 </span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>
-</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="k">def</span><span class="w"> </span><span class="nf">run_ex4</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a><span class="k">def</span><span class="w"> </span><span class="nf">run_ex4</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a><span class="sd">    Executa l&#39;Exercici 4, rebent el df resultant de l&#39;ex3.</span>
 </span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- EXERCICI 4 ---&quot;</span><span class="p">)</span>
-</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">add_clean_club_column</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>    <span class="n">data_frame</span> <span class="o">=</span> <span class="n">afegir_columna_clean_club</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1) 15 primers valors amb columna &#39;club_clean&#39;:&quot;</span><span class="p">)</span>
-</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)[[</span><span class="s1">&#39;club&#39;</span><span class="p">,</span> <span class="s1">&#39;club_clean&#39;</span><span class="p">]])</span>
+</span><span id="L-101"><a href="#L-101"><span class="linenos">101</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)[[</span><span class="s1">&#39;club&#39;</span><span class="p">,</span> <span class="s1">&#39;club_clean&#39;</span><span class="p">]])</span>
 </span><span id="L-102"><a href="#L-102"><span class="linenos">102</span></a>
-</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>    <span class="n">club_grouped</span> <span class="o">=</span> <span class="n">groupby_club_clean</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="L-103"><a href="#L-103"><span class="linenos">103</span></a>    <span class="n">club_grouped</span> <span class="o">=</span> <span class="n">groupby_club_clean</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
 </span><span id="L-104"><a href="#L-104"><span class="linenos">104</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">2) DataFrame ordenat per número de ciclistes a cada club:&quot;</span><span class="p">)</span>
 </span><span id="L-105"><a href="#L-105"><span class="linenos">105</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">club_grouped</span><span class="p">)</span>
 </span><span id="L-106"><a href="#L-106"><span class="linenos">106</span></a>
-</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>    <span class="k">return</span> <span class="n">df</span>
+</span><span id="L-107"><a href="#L-107"><span class="linenos">107</span></a>    <span class="k">return</span> <span class="n">data_frame</span>
 </span></pre></div>
 
 
@@ -284,27 +284,27 @@
 
 
                 </section>
-                <section id="add_clean_club_column">
-                            <input id="add_clean_club_column-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="afegir_columna_clean_club">
+                            <input id="afegir_columna_clean_club-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">add_clean_club_column</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
+        <span class="name">afegir_columna_clean_club</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data_frame</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
 
-                <label class="view-source-button" for="add_clean_club_column-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="afegir_columna_clean_club-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#add_clean_club_column"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="add_clean_club_column-71"><a href="#add_clean_club_column-71"><span class="linenos">71</span></a><span class="k">def</span><span class="w"> </span><span class="nf">add_clean_club_column</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-</span><span id="add_clean_club_column-72"><a href="#add_clean_club_column-72"><span class="linenos">72</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="add_clean_club_column-73"><a href="#add_clean_club_column-73"><span class="linenos">73</span></a><span class="sd">    Retorna un nou DataFrame amb la columna &#39;club_clean&#39; netejada.</span>
-</span><span id="add_clean_club_column-74"><a href="#add_clean_club_column-74"><span class="linenos">74</span></a>
-</span><span id="add_clean_club_column-75"><a href="#add_clean_club_column-75"><span class="linenos">75</span></a><span class="sd">    :param df: DataFrame original.</span>
-</span><span id="add_clean_club_column-76"><a href="#add_clean_club_column-76"><span class="linenos">76</span></a><span class="sd">    :return: DataFrame amb la nova columna &#39;club_clean&#39;.</span>
-</span><span id="add_clean_club_column-77"><a href="#add_clean_club_column-77"><span class="linenos">77</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="add_clean_club_column-78"><a href="#add_clean_club_column-78"><span class="linenos">78</span></a>    <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="add_clean_club_column-79"><a href="#add_clean_club_column-79"><span class="linenos">79</span></a>    <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;club_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;club&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_club</span><span class="p">)</span>
-</span><span id="add_clean_club_column-80"><a href="#add_clean_club_column-80"><span class="linenos">80</span></a>    <span class="k">return</span> <span class="n">df_copy</span>
+    <a class="headerlink" href="#afegir_columna_clean_club"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="afegir_columna_clean_club-71"><a href="#afegir_columna_clean_club-71"><span class="linenos">71</span></a><span class="k">def</span><span class="w"> </span><span class="nf">afegir_columna_clean_club</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span><span id="afegir_columna_clean_club-72"><a href="#afegir_columna_clean_club-72"><span class="linenos">72</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="afegir_columna_clean_club-73"><a href="#afegir_columna_clean_club-73"><span class="linenos">73</span></a><span class="sd">    Retorna un nou DataFrame amb la columna &#39;club_clean&#39; netejada.</span>
+</span><span id="afegir_columna_clean_club-74"><a href="#afegir_columna_clean_club-74"><span class="linenos">74</span></a>
+</span><span id="afegir_columna_clean_club-75"><a href="#afegir_columna_clean_club-75"><span class="linenos">75</span></a><span class="sd">    :param data_frame: DataFrame original.</span>
+</span><span id="afegir_columna_clean_club-76"><a href="#afegir_columna_clean_club-76"><span class="linenos">76</span></a><span class="sd">    :return: DataFrame amb la nova columna &#39;club_clean&#39;.</span>
+</span><span id="afegir_columna_clean_club-77"><a href="#afegir_columna_clean_club-77"><span class="linenos">77</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="afegir_columna_clean_club-78"><a href="#afegir_columna_clean_club-78"><span class="linenos">78</span></a>    <span class="n">df_copia</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="afegir_columna_clean_club-79"><a href="#afegir_columna_clean_club-79"><span class="linenos">79</span></a>    <span class="n">df_copia</span><span class="p">[</span><span class="s1">&#39;club_clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_copia</span><span class="p">[</span><span class="s1">&#39;club&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_club</span><span class="p">)</span>
+</span><span id="afegir_columna_clean_club-80"><a href="#afegir_columna_clean_club-80"><span class="linenos">80</span></a>    <span class="k">return</span> <span class="n">df_copia</span>
 </span></pre></div>
 
 
@@ -313,7 +313,7 @@
 <h6 id="parameters">Parameters</h6>
 
 <ul>
-<li><strong>df</strong>:  DataFrame original.</li>
+<li><strong>data_frame</strong>:  DataFrame original.</li>
 </ul>
 
 <h6 id="returns">Returns</h6>
@@ -330,21 +330,21 @@
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">groupby_club_clean</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
+        <span class="name">groupby_club_clean</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data_frame</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
 
                 <label class="view-source-button" for="groupby_club_clean-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#groupby_club_clean"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="groupby_club_clean-83"><a href="#groupby_club_clean-83"><span class="linenos">83</span></a><span class="k">def</span><span class="w"> </span><span class="nf">groupby_club_clean</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="groupby_club_clean-83"><a href="#groupby_club_clean-83"><span class="linenos">83</span></a><span class="k">def</span><span class="w"> </span><span class="nf">groupby_club_clean</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 </span><span id="groupby_club_clean-84"><a href="#groupby_club_clean-84"><span class="linenos">84</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="groupby_club_clean-85"><a href="#groupby_club_clean-85"><span class="linenos">85</span></a><span class="sd">    Agrupa pel camp &#39;club_clean&#39; i retorna un dataframe amb el nom del club</span>
 </span><span id="groupby_club_clean-86"><a href="#groupby_club_clean-86"><span class="linenos">86</span></a><span class="sd">    i el número de ciclistes de cada club, ordenat de més a menys.</span>
 </span><span id="groupby_club_clean-87"><a href="#groupby_club_clean-87"><span class="linenos">87</span></a>
-</span><span id="groupby_club_clean-88"><a href="#groupby_club_clean-88"><span class="linenos">88</span></a><span class="sd">    :param df: DataFrame amb la columna &#39;club_clean&#39;.</span>
+</span><span id="groupby_club_clean-88"><a href="#groupby_club_clean-88"><span class="linenos">88</span></a><span class="sd">    :param data_frame: DataFrame amb la columna &#39;club_clean&#39;.</span>
 </span><span id="groupby_club_clean-89"><a href="#groupby_club_clean-89"><span class="linenos">89</span></a><span class="sd">    :return: DataFrame amb [&#39;club_clean&#39;, &#39;count&#39;] ordenat desc.</span>
 </span><span id="groupby_club_clean-90"><a href="#groupby_club_clean-90"><span class="linenos">90</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="groupby_club_clean-91"><a href="#groupby_club_clean-91"><span class="linenos">91</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;club_clean&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+</span><span id="groupby_club_clean-91"><a href="#groupby_club_clean-91"><span class="linenos">91</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;club_clean&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
 </span><span id="groupby_club_clean-92"><a href="#groupby_club_clean-92"><span class="linenos">92</span></a>    <span class="n">grouped</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="groupby_club_clean-93"><a href="#groupby_club_clean-93"><span class="linenos">93</span></a>    <span class="k">return</span> <span class="n">grouped</span>
 </span></pre></div>
@@ -356,7 +356,7 @@ i el número de ciclistes de cada club, ordenat de més a menys.</p>
 <h6 id="parameters">Parameters</h6>
 
 <ul>
-<li><strong>df</strong>:  DataFrame amb la columna 'club_clean'.</li>
+<li><strong>data_frame</strong>:  DataFrame amb la columna 'club_clean'.</li>
 </ul>
 
 <h6 id="returns">Returns</h6>
@@ -373,26 +373,26 @@ i el número de ciclistes de cada club, ordenat de més a menys.</p>
 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">run_ex4</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">df</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
+        <span class="name">run_ex4</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">data_frame</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span></span><span class="return-annotation">) -> <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>:</span></span>
 
                 <label class="view-source-button" for="run_ex4-view-source"><span>View Source</span></label>
 
     </div>
     <a class="headerlink" href="#run_ex4"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="run_ex4-95"><a href="#run_ex4-95"><span class="linenos"> 95</span></a><span class="k">def</span><span class="w"> </span><span class="nf">run_ex4</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="run_ex4-95"><a href="#run_ex4-95"><span class="linenos"> 95</span></a><span class="k">def</span><span class="w"> </span><span class="nf">run_ex4</span><span class="p">(</span><span class="n">data_frame</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 </span><span id="run_ex4-96"><a href="#run_ex4-96"><span class="linenos"> 96</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 </span><span id="run_ex4-97"><a href="#run_ex4-97"><span class="linenos"> 97</span></a><span class="sd">    Executa l&#39;Exercici 4, rebent el df resultant de l&#39;ex3.</span>
 </span><span id="run_ex4-98"><a href="#run_ex4-98"><span class="linenos"> 98</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="run_ex4-99"><a href="#run_ex4-99"><span class="linenos"> 99</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- EXERCICI 4 ---&quot;</span><span class="p">)</span>
-</span><span id="run_ex4-100"><a href="#run_ex4-100"><span class="linenos">100</span></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">add_clean_club_column</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="run_ex4-100"><a href="#run_ex4-100"><span class="linenos">100</span></a>    <span class="n">data_frame</span> <span class="o">=</span> <span class="n">afegir_columna_clean_club</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
 </span><span id="run_ex4-101"><a href="#run_ex4-101"><span class="linenos">101</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1) 15 primers valors amb columna &#39;club_clean&#39;:&quot;</span><span class="p">)</span>
-</span><span id="run_ex4-102"><a href="#run_ex4-102"><span class="linenos">102</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)[[</span><span class="s1">&#39;club&#39;</span><span class="p">,</span> <span class="s1">&#39;club_clean&#39;</span><span class="p">]])</span>
+</span><span id="run_ex4-102"><a href="#run_ex4-102"><span class="linenos">102</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)[[</span><span class="s1">&#39;club&#39;</span><span class="p">,</span> <span class="s1">&#39;club_clean&#39;</span><span class="p">]])</span>
 </span><span id="run_ex4-103"><a href="#run_ex4-103"><span class="linenos">103</span></a>
-</span><span id="run_ex4-104"><a href="#run_ex4-104"><span class="linenos">104</span></a>    <span class="n">club_grouped</span> <span class="o">=</span> <span class="n">groupby_club_clean</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="run_ex4-104"><a href="#run_ex4-104"><span class="linenos">104</span></a>    <span class="n">club_grouped</span> <span class="o">=</span> <span class="n">groupby_club_clean</span><span class="p">(</span><span class="n">data_frame</span><span class="p">)</span>
 </span><span id="run_ex4-105"><a href="#run_ex4-105"><span class="linenos">105</span></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">2) DataFrame ordenat per número de ciclistes a cada club:&quot;</span><span class="p">)</span>
 </span><span id="run_ex4-106"><a href="#run_ex4-106"><span class="linenos">106</span></a>    <span class="nb">print</span><span class="p">(</span><span class="n">club_grouped</span><span class="p">)</span>
 </span><span id="run_ex4-107"><a href="#run_ex4-107"><span class="linenos">107</span></a>
-</span><span id="run_ex4-108"><a href="#run_ex4-108"><span class="linenos">108</span></a>    <span class="k">return</span> <span class="n">df</span>
+</span><span id="run_ex4-108"><a href="#run_ex4-108"><span class="linenos">108</span></a>    <span class="k">return</span> <span class="n">data_frame</span>
 </span></pre></div>
 
 

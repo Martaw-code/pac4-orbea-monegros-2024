@@ -1,6 +1,7 @@
+# tests/test_suite.py
 import unittest
 
-# Importem les classes de test de cadascun dels fitxers
+# Importem totes les classes de test
 from tests.test_ex1 import TestEx1
 from tests.test_ex2 import TestEx2
 from tests.test_ex3 import TestEx3
@@ -11,24 +12,23 @@ from tests.test_main import TestMain
 def suite() -> unittest.TestSuite:
     """
     Crea i retorna una TestSuite que agrupi tots els tests
-    definits a les classes TestEx1, TestEx2, ..., TestMain.
+    definits a les classes TestEx1, TestEx2, ..., TestMain,
+    sense fer servir unittest.makeSuite().
     """
-    # Creem una TestSuite buida
+    loader = unittest.TestLoader()
     test_suite = unittest.TestSuite()
 
-    # Afegim cadascuna de les nostres classes de test
-    test_suite.addTest(unittest.makeSuite(TestEx1))
-    test_suite.addTest(unittest.makeSuite(TestEx2))
-    test_suite.addTest(unittest.makeSuite(TestEx3))
-    test_suite.addTest(unittest.makeSuite(TestEx4))
-    test_suite.addTest(unittest.makeSuite(TestEx5))
-    test_suite.addTest(unittest.makeSuite(TestMain))
-
+    # Carreguem els tests de cada classe
+    test_suite.addTests([
+        loader.loadTestsFromTestCase(TestEx1),
+        loader.loadTestsFromTestCase(TestEx2),
+        loader.loadTestsFromTestCase(TestEx3),
+        loader.loadTestsFromTestCase(TestEx4),
+        loader.loadTestsFromTestCase(TestEx5),
+        loader.loadTestsFromTestCase(TestMain),
+    ])
     return test_suite
 
-
 if __name__ == "__main__":
-    # Executem la suite amb un TextTestRunner
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite())
-
