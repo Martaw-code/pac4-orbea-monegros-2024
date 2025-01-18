@@ -32,7 +32,7 @@ def parse_args():
     parser.add_argument(
         "--csv",
         "-c",
-        default="../data/dataset.csv",
+        default="data/dataset.csv",
         help="Ruta del CSV amb el dataset (per defecte data/dataset.csv)."
     )
     return parser.parse_args()

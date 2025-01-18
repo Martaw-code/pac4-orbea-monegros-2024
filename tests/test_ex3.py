@@ -45,10 +45,12 @@ class TestEx3(unittest.TestCase):
             "time_grouped": ["00:00", "00:00", "00:20"],
             "count": [2, 2, 1]
         })
-        output_path = "../img/test_histograma.png"
+        output_path = "img/test_histograma.png"
 
         plot_histograma(df, output_path)
-        self.assertTrue(os.path.exists(output_path), "S'hauria d'haver creat el fitxer de l'histograma.")
+        self.assertTrue(
+            os.path.exists(output_path),
+            "S'hauria d'haver creat el fitxer de l'histograma.")
 
 
 if __name__ == '__main__':

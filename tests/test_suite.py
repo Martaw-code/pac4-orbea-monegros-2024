@@ -1,7 +1,9 @@
-# tests/test_suite.py
+"""
+Suite de testos agrupa tots els tests definits
+"""
 import unittest
 
-# Importem totes les classes de test
+
 from tests.test_ex1 import TestEx1
 from tests.test_ex2 import TestEx2
 from tests.test_ex3 import TestEx3
@@ -18,7 +20,6 @@ def suite() -> unittest.TestSuite:
     loader = unittest.TestLoader()
     test_suite = unittest.TestSuite()
 
-    # Carreguem els tests de cada classe
     test_suite.addTests([
         loader.loadTestsFromTestCase(TestEx1),
         loader.loadTestsFromTestCase(TestEx2),

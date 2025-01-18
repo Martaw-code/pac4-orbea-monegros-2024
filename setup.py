@@ -4,7 +4,7 @@ setup(
     name="pac4-orbea-monegros",
     version="0.1.0",
     description="PAC4 - Orbea Monegros 2024: Anàlisi de dades de la cursa.",
-    author="El Teu Nom",
+    author="Marta Granero I Martí",
     author_email="martagraneroi@uoc.edu",
     url="https://github.com/martaw-code/orbea-monegros-2024",
     license="MIT",
@@ -14,10 +14,10 @@ setup(
         "pandas",
         "matplotlib",
         "Faker",
-        "pytest",
         "coverage",
         "pylint",
-        "setuptools"
+        "setuptools",
+        "pdoc"
     ],
     entry_points={
         "console_scripts": [

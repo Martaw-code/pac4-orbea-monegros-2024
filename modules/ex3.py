@@ -68,7 +68,7 @@ def groupby_time_grouped(data_frame: pd.DataFrame) -> pd.DataFrame:
 
 def plot_histograma(
         grouped_df: pd.DataFrame,
-        output_path: str = "../img/histograma.png") -> None:
+        output_path: str = "img/histograma.png") -> None:
     """
     Genera un histograma (o bé un bar plot) a partir de la informació agrupada
     en franges de 20 min i el desa a 'img/histograma.png'.
@@ -99,7 +99,7 @@ def run_ex3(data_frame: pd.DataFrame) -> pd.DataFrame:
     print(grouped_df)
 
     print("\n3) Generant histograma i guardant a img/histograma.png...")
-    plot_histograma(grouped_df, os.path.join("..", "img", "histograma.png"))
+    plot_histograma(grouped_df, os.path.join("img", "histograma.png"))
     print("   Fet!")
 
     return data_frame

@@ -31,7 +31,7 @@ def primers_registres(
     Retorna els primers nombre_files registres del DataFrame.
 
     :param data_frame: DataFrame amb les dades.
-    :param nombre_files: Número de registres a mostrar (per defecte 5).
+    :param nombre_files: Nombre de registres a mostrar (per defecte 5).
     :return: DataFrame amb els primers nombre_files registres.
     """
     return data_frame.head(nombre_files)

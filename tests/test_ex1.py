@@ -13,7 +13,7 @@ class TestEx1(unittest.TestCase):
         """
         Test per comprovar que carrega_conjunt carrega un DataFrame no buit.
         """
-        df = carrega_conjunt("../data/dataset.csv")
+        df = carrega_conjunt("data/dataset.csv")
         self.assertIsInstance(df, pd.DataFrame)
         self.assertFalse(df.empty, "El DataFrame no hauria d'estar buit.")
 
