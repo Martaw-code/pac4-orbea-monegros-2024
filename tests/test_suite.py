@@ -1,5 +1,5 @@
 """
-Suite de testos agrupa tots els tests definits
+Suite de testos que agrupa tots els tests definits
 """
 import unittest
 
