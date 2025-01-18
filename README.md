@@ -9,13 +9,13 @@ Marta Granero I Martí
 ## 1. Estructura del projecte
 
 - **`LICENSE`**: El document de llicència.  
-- **`README.md`**: Explicació general del projecte, estructura, eines, exercicis, Makefile 
+- **`README.md`**: Explicació general del projecte, estructura, eines, exercicis, Makefile, llicència i com empaquetar el projecte
 - **`INSTALL.md`**: Guia d’instal·lació i com dur a terme l'execució dels exercicis, la documentació i el paquet.
 - **`requirements.txt`**: Llista de dependències necessàries (pandas, Faker, matplotlib, etc.).  
 - **`setup.py`**: Script per empaquetar el projecte com a paquet instal·lable (genera `sdist` i `wheel`).  
 - **`Makefile`**: Script per executar comandes de forma automatitzada (creació d’entorn virtual, instal·lació, execució de tests, cobertura, etc.).  
-- **`data/`**: Fitxers de dades com el `dataset.csv`.  
-- **`img/`**: Imatges generades pel codi (histograma, etc.).  
+- **`data/`**: Carpeta que conté el conjunt de dades com: `dataset.csv`.  
+- **`img/`**: Carpeta que conté les imatges generades pel codi (histograma, etc.).  
 - **`modules/`**: Codi Python separat per cada exercici (`ex1.py`, `ex2.py`, `ex3.py`, `ex4.py` i `ex5.py`).  
 - **`main.py`**: Punt d’entrada principal del programa (rep paràmetres com `--exercise ex1` o bé `--csv data/dataset`) i crida els mòduls.  
 - **`tests/`**: Fitxers de test unitaris per cada exercici i pel `main.py` (ex: `test_ex1.py` i `test_main.py`) i suite addicional (`test_suite.py`).
@@ -34,7 +34,7 @@ Així mateix, al llarg del projecte hem fet servir diverses eines i llibreries:
 - **coverage**: per calcular la cobertura de tests del codi.
 - **pylint**: per comprovar l’estil segons la PEP8.
 - **pdoc**: per generar documentació automàtica a partir dels docstrings.
-- **Makefile**: per facilitar la creació d’entorn virtual, instal·lació de dependències, execució dels exercicis, tests, cobertura, documentació, creació del paquet i instal·lació del mateix al nostre entorn.
+- **Makefile**: per facilitar la creació d’entorn virtual, instal·lació de dependències, execució dels exercicis, tests, cobertura, documentació, creació del paquet, instal·lació del mateix al nostre entorn i generació del zip.
 - **setup.py**: per empaquetar el projecte com un paquet (sdist + wheel) i poder-lo instal·lar amb `pip install dist/...`.
 
 Totes aquestes depenen d'**`requirements.txt`**, on es defineixen versions concretes o mínimes.
@@ -63,6 +63,7 @@ Aquest projecte inclou un **Makefile** per automatitzar i simplificar la instal�
 - **`build-dist`**: Genera el paquet (`sdist` i `wheel`) a la carpeta `dist/` mitjançant `setup.py`.  
 - **`install-dist`**: Instal·la el `.whl` generat (ex. `dist/*.whl`) dins `venv`.  
 - **`docs`**: Genera documentació amb `pdoc` a la carpeta `docs_html/`.
+- **`zip`**: Genera el zip del projecte amb els fitxers essencials.
 - **`pylint`**: Comprova l’estil PEP8.  
 - **`clean`**: Elimina fitxers de caché i coverage.
 
@@ -124,4 +125,11 @@ pdoc modules/ main.py tests --output-dir docs
 
 Aquest projecte es distribueix sota la `MIT License`, podeu trobar-hi més informació al fitxer `LICENSE` al projecte.
 
+## Empaqueta el projecte!
+
+Un cop tinguis el projecte executat, si vols fer-ne un zip, ho pots fer a partir de la següent comanda:
+
+```bash
+make zip
+```
 
