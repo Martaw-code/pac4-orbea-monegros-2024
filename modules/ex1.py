@@ -10,6 +10,7 @@ Objectiu:
 """
 import pandas as pd
 
+
 def carrega_conjunt(
         ruta_csv: str,
         sep: str = ";") -> pd.DataFrame:

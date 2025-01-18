@@ -6,7 +6,6 @@ Objectiu:
 - Quina persona va fer millor temps.
 - Posició en la classificació i percentatge.
 """
-
 import pandas as pd
 
 
@@ -30,7 +29,6 @@ def get_millor_temps_ucsc(data_frame_ucsc: pd.DataFrame) -> pd.Series:
     :param data_frame_ucsc: DataFrame amb ciclistes de la UCSC.
     :return: Fila (Series) corresponent al ciclista amb millor temps.
     """
-    # Convertim la columna 'time' a Timedelta per poder ordenar
     df_ucsc_copia = data_frame_ucsc.copy()
     df_ucsc_copia['time_td'] = pd.to_timedelta(df_ucsc_copia['time'])
     df_ucsc_copia = df_ucsc_copia.sort_values('time_td', ascending=True)
@@ -61,7 +59,7 @@ def get_posicio_i_percentatge(data_frame: pd.DataFrame, dorsal: int) -> tuple:
 
 def run_ex5(data_frame: pd.DataFrame) -> None:
     """
-    Executa l'Exercici 5, rebent el df resultant de l'ex4.
+    Executa l'Exercici 5, rebent el data_frame resultant de l'ex4.
     """
     print("\n--- EXERCICI 5 ---")
     data_frame_ucsc = get_ucsc_ciclistes(data_frame)

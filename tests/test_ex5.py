@@ -2,10 +2,13 @@
 Test module per l'exercici ex5.py usant unittest
 """
 import unittest
-import pandas as pd
-from modules.ex5 import get_ucsc_ciclistes, get_millor_temps_ucsc, get_posicio_i_percentatge, run_ex5
 from unittest.mock import patch
 from io import StringIO
+import pandas as pd
+from modules.ex5 import (get_ucsc_ciclistes,
+                         get_millor_temps_ucsc,
+                         get_posicio_i_percentatge, run_ex5)
+
 
 class TestEx5(unittest.TestCase):
     """Tests per a les funcions d'ex5.py."""

@@ -6,7 +6,6 @@ Objectiu:
 - Crear una nova columna amb aquest agrupament.
 - Crear un histograma i guardar-lo a 'img/histograma.png'.
 """
-
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -56,7 +55,7 @@ def crea_time_grouped(data_frame: pd.DataFrame) -> pd.DataFrame:
 
 def groupby_time_grouped(data_frame: pd.DataFrame) -> pd.DataFrame:
     """
-    Agrupa el DataFrame per la columna 'time_grouped' i en compte quants ciclistes
+    Agrupa el DataFrame per la columna 'time_grouped' i compta quants ciclistes
     hi ha a cada franja de temps.
 
     :param data_frame: DataFrame que conté la columna 'time_grouped'.
@@ -87,7 +86,7 @@ def plot_histograma(
 
 def run_ex3(data_frame: pd.DataFrame) -> pd.DataFrame:
     """
-    Executa l'Exercici 3, rebent el df resultant de l'ex2.
+    Executa l'Exercici 3, rebent el data_frame resultant de l'ex2.
     """
     print("\n--- EXERCICI 3 ---")
     data_frame = crea_time_grouped(data_frame)

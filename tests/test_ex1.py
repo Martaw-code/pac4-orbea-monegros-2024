@@ -1,7 +1,6 @@
 """
 Test module per l'exercici ex1.py usant unittest
 """
-
 import unittest
 import pandas as pd
 from modules.ex1 import carrega_conjunt, primers_registres, get_nombre_ciclistes, get_columnes

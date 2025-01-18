@@ -1,7 +1,6 @@
 """
 Test module per l'exercici ex4.py usant unittest
 """
-
 import unittest
 import pandas as pd
 from modules.ex4 import clean_club, afegir_columna_clean_club, groupby_club_clean

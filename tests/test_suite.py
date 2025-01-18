@@ -13,7 +13,7 @@ from tests.test_main import TestMain
 
 def suite() -> unittest.TestSuite:
     """
-    Crea i retorna una TestSuite que agrupi tots els tests
+    Crea i retorna una TestSuite que agrupa tots els tests
     definits a les classes TestEx1, TestEx2, ..., TestMain,
     sense fer servir unittest.makeSuite().
     """

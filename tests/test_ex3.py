@@ -1,7 +1,6 @@
 """
 Test module per l'exercici ex3.py usant unittest
 """
-
 import unittest
 import os
 import pandas as pd

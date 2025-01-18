@@ -8,6 +8,7 @@ PYLINT := pylint
 
 MODULES := modules/ main.py
 TESTS_DIR := tests
+DOCS_OUTPUT_DIR := docs
 
 # Per a Windows, sovint cal fer "py -m pip" i "py -m python" en lloc de "pip" i "python".
 
@@ -29,7 +30,9 @@ help:
 	@echo "  make run-ex5             -> Executar l'exercici 5"
 	@echo "  make tests               -> Executar tots els tests unitaris"
 	@echo "  make test-suite          -> Executem la suite de testos"
-	@echo "  make coverage           -> Executa coverage (grava dades)"
+	@echo "  make build-dist          -> Genera el paquet (sdist i wheel) a ./dist/"
+	@echo "  make install-dist        -> Instal·la el wheel creat a ./dist/ (primer build-dist)"
+	@echo "  make docs                -> Genera documentació amb pdoc"
 	@echo "  make coverage-report     -> Mostra l'informe de cobertura en text"
 	@echo "  make coverage-html       -> Genera l'informe HTML de cobertura (htmlcov/)"
 	@echo "  make pylint              -> Comprovar estil (PEP8) amb pylint"
@@ -99,11 +102,40 @@ test-suite:
 	@echo "Executant la suite de test personalitzada..."
 	$(PYTHON) -m tests.test_suite
 
+
+## ===========================
+## Coverage
+## ===========================
 coverage-report:
 	venv/bin/$(COVERAGE) run -m pytest tests/
 
 coverage-html:
 	venv/bin/$(COVERAGE) html
+
+
+## ===========================
+## Generar el paquet (sdist i wheel)
+## ===========================
+build-dist:
+	@echo "Generant sdist i wheel a ./dist/..."
+	venv/bin/$(PYTHON) setup.py sdist bdist_wheel
+
+
+## ===========================
+## Instal·lar el paquet generat al venv
+## ===========================
+install-dist:
+	@echo "Instal·lant el paquet generat a ./dist/*.whl ..."
+	venv/bin/$(PIP) install --upgrade pip
+	venv/bin/$(PIP) install dist/pac4_orbea_monegros-0.1.0-py3-none-any.whl
+
+
+## ===========================
+## Generar documentacio amb pdoc
+## ===========================
+docs:
+	@echo "Generant documentació amb pdoc a $(DOCS_OUTPUT_DIR)/"
+	venv/bin/pdoc $(MODULES) $(TESTS_DIR)  --output-dir $(DOCS_OUTPUT_DIR)
 
 
 ## ===========================
@@ -118,8 +150,13 @@ pylint:
 ## Neteja
 ## ===========================
 clean:
-	@echo "Eliminant fitxers de caché i cobertura..."
+	@echo "Eliminant fitxers d'entorn, caché, cobertura, docs, dist, build..."
 	find . -name "__pycache__" -type d -exec rm -rf {} +
 	find . -name "*.pyc" -exec rm -f {} +
 	find . -name "*.egg-info" -exec rm -rf {} +
 	find . -name ".coverage" -exec rm -f {} +
+	find . -name "venv" -exec rm -rf {} +
+	find . -name "docs" -exec rm -rf {} +
+	find . -name "dist" -exec rm -rf {} +
+	find . -name "build" -exec rm -rf {} +
+	find . -name "htmlcov" -exec rm -rf {} +

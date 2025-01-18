@@ -1,7 +1,6 @@
 """
-Tests for main.py to ensure 100% coverage of the branching logic.
+Tests per main.py
 """
-
 import unittest
 import sys
 from unittest.mock import patch

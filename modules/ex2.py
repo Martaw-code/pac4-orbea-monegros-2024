@@ -7,9 +7,9 @@ Objectiu:
 - Recuperar ciclista amb dorsal=1000 (exemple).
 
 """
-
 import pandas as pd
 from faker import Faker
+
 
 fake = Faker()
 
@@ -54,7 +54,7 @@ def get_ciclista_per_dorsal(
 
 def run_ex2(data_frame: pd.DataFrame) -> pd.DataFrame:
     """
-    Executa l'Exercici 2, rebent el df resultant de l'ex1.
+    Executa l'Exercici 2, rebent el data_frame resultant de l'ex1.
     """
     print("\n--- EXERCICI 2 ---")
     data_frame = name_surname(data_frame)

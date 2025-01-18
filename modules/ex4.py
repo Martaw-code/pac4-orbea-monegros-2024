@@ -6,7 +6,6 @@ Objectiu:
 - Crear la nova columna 'club_clean'.
 - Agrupar per 'club_clean' per comptar ciclistes.
 """
-
 import re
 import pandas as pd
 
@@ -34,32 +33,32 @@ def clean_club(club: str) -> str:
     club = club.upper()
 
     # Pas 2 - Eliminar subcadenes fixes
-    remove_list_2 = [
+    remove_subcadenes = [
         'PEÑA CICLISTA ', 'PENYA CICLISTA ', 'AGRUPACIÓN CICLISTA ',
         'AGRUPACION CICLISTA ', 'AGRUPACIÓ CICLISTA ', 'AGRUPACIO CICLISTA ',
         'CLUB CICLISTA ', 'CLUB '
     ]
-    for pattern in remove_list_2:
-        club = club.replace(pattern, '')
+    for patro in remove_subcadenes:
+        club = club.replace(patro, '')
 
     # Pas 3 - Eliminar subcadenes si estan al principi
-    remove_list_3 = [
+    remove_subcadenes_principi = [
         r'^C\.C\. ', r'^C\.C ', r'^CC ', r'^C\.D\. ', r'^C\.D ', r'^CD ',
         r'^A\.C\. ', r'^A\.C ', r'^AC ', r'^A\.D\. ', r'^A\.D ', r'^AD ',
         r'^A\.E\. ', r'^A\.E ', r'^AE ', r'^E\.C\. ', r'^E\.C ', r'^EC ',
         r'^S\.C\. ', r'^S\.C ', r'^SC ', r'^S\.D\. ', r'^S\.D ', r'^SD '
     ]
-    for pattern in remove_list_3:
-        club = re.sub(pattern, '', club)
+    for patro in remove_subcadenes_principi:
+        club = re.sub(patro, '', club)
 
     # Pas 4 - Eliminar subcadenes si estan al final
-    remove_list_4 = [
+    remove_remove_subcadenes_final = [
         r' T\.T\.$', r' T\.T$', r' TT$', r' T\.E\.$', r' T\.E$', r' TE$',
         r' C\.C\.$', r' C\.C$', r' CC$', r' C\.D\.$', r' C\.D$', r' CD$',
         r' A\.D\.$', r' A\.D$', r' AD$', r' A\.C\.$', r' A\.C$', r' AC$'
     ]
-    for pattern in remove_list_4:
-        club = re.sub(pattern, '', club)
+    for patro in remove_remove_subcadenes_final:
+        club = re.sub(patro, '', club)
 
     # Pas 5 - Eliminar espais en blanc
     club = club.strip()
@@ -82,7 +81,7 @@ def afegir_columna_clean_club(data_frame: pd.DataFrame) -> pd.DataFrame:
 def groupby_club_clean(data_frame: pd.DataFrame) -> pd.DataFrame:
     """
     Agrupa pel camp 'club_clean' i retorna un dataframe amb el nom del club
-    i el número de ciclistes de cada club, ordenat de més a menys.
+    i el nombre de ciclistes de cada club, ordenat de més a menys.
 
     :param data_frame: DataFrame amb la columna 'club_clean'.
     :return: DataFrame amb ['club_clean', 'count'] ordenat desc.
@@ -93,7 +92,7 @@ def groupby_club_clean(data_frame: pd.DataFrame) -> pd.DataFrame:
 
 def run_ex4(data_frame: pd.DataFrame) -> pd.DataFrame:
     """
-    Executa l'Exercici 4, rebent el df resultant de l'ex3.
+    Executa l'Exercici 4, rebent el data_frame resultant de l'ex3.
     """
     print("\n--- EXERCICI 4 ---")
     data_frame = afegir_columna_clean_club(data_frame)

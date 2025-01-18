@@ -15,7 +15,7 @@ def parse_args():
     Analitza els paràmetres de la línia de comandes i retorna
     un objecte argparse.Namespace.
 
-    Returns:
+    Retorna:
         argparse.Namespace: Objecte amb els paràmetres 'exercise' i 'csv'.
           - exercise (str): Quin exercici s'ha de dur a terme (ex1, ex2, ex3, ex4, ex5 o all).
           - csv (str): Ruta al fitxer CSV amb el dataset (per defecte data/dataset.csv).

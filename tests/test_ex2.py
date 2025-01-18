@@ -1,7 +1,6 @@
 """
 Test module per l'exercici ex2.py usant unittest
 """
-
 import unittest
 import pandas as pd
 from modules.ex2 import name_surname, elimina_temps_zero, get_ciclista_per_dorsal
