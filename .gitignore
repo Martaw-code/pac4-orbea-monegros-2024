@@ -1,0 +1,28 @@
+# Python bytecode
+__pycache__/
+
+# Entorns virtuals
+venv/
+.venv/
+
+# Fitxers de build i distribució
+build/
+dist/
+*.egg-info/
+
+# Caché de pytest
+.pytest_cache/
+
+# Caché de coverage
+.coverage
+htmlcov/
+
+# Fitxers d'editor
+.idea/
+
+# Fitxers de sistema
+.DS_Store
+
+# Documentació generada
+docs/
+
