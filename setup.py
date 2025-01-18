@@ -8,7 +8,7 @@ def parse_requirements(file_path: str):
     """
     with open(file_path, encoding="utf-8") as f:
         lines = f.read().splitlines()
-    # Filtrar línies en blanc o comentaris
+
     reqs = []
     for line in lines:
         line = line.strip()
@@ -27,6 +27,7 @@ setup(
     url="https://github.com/martaw-code/orbea-monegros-2024",
     license="MIT",
     packages=find_packages(),
+    py_modules=["main"],
     python_requires=">=3.12",
     install_requires=requirements,
     entry_points={

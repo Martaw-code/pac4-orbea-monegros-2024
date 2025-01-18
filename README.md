@@ -17,27 +17,27 @@ Marta Granero I Martí
 - **`data/`**: Fitxers de dades com el `dataset.csv`.  
 - **`img/`**: Imatges generades pel codi (histograma, etc.).  
 - **`modules/`**: Codi Python separat per cada exercici (`ex1.py`, `ex2.py`, `ex3.py`, `ex4.py` i `ex5.py`).  
-- **`main.py`**: Punt d’entrada principal (rep paràmetres com `--exercise ex1` o bé `--csv data/dataset`) i crida els mòduls.  
-- **`tests/`**: Fitxers de test unitaris (ex: `test_ex1.py`) i suite addicional (`test_suite.py`).
+- **`main.py`**: Punt d’entrada principal del programa (rep paràmetres com `--exercise ex1` o bé `--csv data/dataset`) i crida els mòduls.  
+- **`tests/`**: Fitxers de test unitaris per cada exercici i pel `main.py` (ex: `test_ex1.py` i `test_main.py`) i suite addicional (`test_suite.py`).
 
 
 ## 2. Eines i paquets utilitzats
 
-Al projecte hem fet servir diverses eines i llibreries:
+Aquest projecte s'ha desenvolupat sota la versió **Python 3.12**.
 
-- **Python 3.12** (o superior).
+Així mateix, al llarg del projecte hem fet servir diverses eines i llibreries:
+
 - **pandas**: per carregar i manipular dades (EDA).
 - **matplotlib**: per generar l’histograma (Ex3).
 - **Faker**: per anonimitzar el nom dels ciclistes (Ex2).
 - **pytest** / **unittest**: per fer tests unitaris.
-- **coverage**: per calcular la cobertura de codi.
+- **coverage**: per calcular la cobertura de tests del codi.
 - **pylint**: per comprovar l’estil segons la PEP8.
 - **pdoc**: per generar documentació automàtica a partir dels docstrings.
 - **Makefile**: per facilitar la creació d’entorn virtual, instal·lació de dependències, execució dels exercicis, tests, cobertura, documentació, creació del paquet i instal·lació del mateix al nostre entorn.
 - **setup.py**: per empaquetar el projecte com un paquet (sdist + wheel) i poder-lo instal·lar amb `pip install dist/...`.
 
 Totes aquestes depenen d'**`requirements.txt`**, on es defineixen versions concretes o mínimes.
-
 
 ## 3. Exercicis (Ex1 → Ex5)
 
@@ -83,16 +83,28 @@ I si volem exeuctar el `main.py` perquè s'executin tots els exercicis, farem:
 make run-all
 ```
 
-
-## Com dur a terme l'execució i la instal·lació de l'entorn i els requeriments?
+## Instal·lació
 
 Per a una guia pas a pas (crear entorn virtual, instal·lar, executar exercici, tests i cobertures, etc.), consulta l’arxiu `INSTALL.md`. 
 Allí s’explica detalladament com arrencar el projecte i com emprar el Makefile.
 
 ## Tests i cobertura
 
-Els tests estan a la carpeta `tests/`. En aquesta hi trobarem un fitxer per cada exercici (`test_ex1.py`, etc.). Així mateix, també hi ha un `test_suite.py` que ens serveix per agrupar tot en una suite manual. 
-A més a més, per calcular la cobertura dels testos, fem servir el paquet `coverage`.
+Els tests estan a la carpeta `tests/`. En aquesta hi trobarem un fitxer per cada exercici (`test_ex1.py`, etc.), com així mateix un test pel `main.py`. 
+Addicionalment, també hi ha un `test_suite.py` que ens serveix per agrupar tot en una suite manual. 
+A més a més, per calcular la cobertura dels testos, fem servir el paquet `coverage`. Per tal de poder veure la cobertura dels testos en el codi, haurem d'executar la comanda:
+
+```bash
+make coverage-report
+```
+
+i posteriorment, 
+
+```bash
+make coverage-html
+```
+
+Aquestes dues comandes ens permetran poder consultar la cobertura amb el fitxer `index.html` dins de la carpeta `htmlcov` generada amb les dues comandes anteriors.
 
 ## Generació de la documentació
 
@@ -102,7 +114,7 @@ Per generar documentació a partir dels docstrings (amb pdoc):
 make docs
 ```
 
-o manualment, des de la carpeta arrel del projecte:
+ó bé, si ho desitgem fer de forma manual, ens siturarem a la carpeta arrel del projecte i executarem a la terminal:
 
 ```bash
 pdoc modules/ main.py tests --output-dir docs

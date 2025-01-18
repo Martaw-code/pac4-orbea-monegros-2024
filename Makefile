@@ -1,6 +1,5 @@
 # Makefile per al projecte PAC4 Orbea Monegros
 
-# Variables
 PYTHON := python3
 PIP := pip
 COVERAGE := coverage
@@ -49,7 +48,7 @@ crea-venv:
 	    echo "Entorn creat. Per activar-lo, fes:"; \
 	    echo " - Linux/Mac: source venv/bin/activate"; \
 	    echo " - Windows (Powershell): .\\venv\\Scripts\\Activate.ps1"; \
-	    echo "Després pots fer 'make install' per instal·lar dependències."; \
+	    echo "Ara ja pots fer 'make install' per instal·lar dependències."; \
 	else \
 	    echo "L'entorn virtual ja existeix a ./venv. No fem res."; \
 	fi
@@ -118,6 +117,7 @@ coverage-html:
 ## ===========================
 build-dist:
 	@echo "Generant sdist i wheel a ./dist/..."
+	venv/bin/$(PIP) install --upgrade pip
 	venv/bin/$(PYTHON) setup.py sdist bdist_wheel
 
 
@@ -131,7 +131,7 @@ install-dist:
 
 
 ## ===========================
-## Generar documentacio amb pdoc
+## Generar documentació amb pdoc
 ## ===========================
 docs:
 	@echo "Generant documentació amb pdoc a $(DOCS_OUTPUT_DIR)/"
